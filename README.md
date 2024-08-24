@@ -4,7 +4,7 @@
 
 PathfinderRL demonstrates the use of Reinforcement Learning (RL) to solve a navigational task within a "Lawnmower Grid World." This environment consists of a 4x4 grid with 16 states. The goal is to navigate from the top-left corner to the bottom-right corner while maximizing rewards and avoiding penalties. The agent collects batteries (positive rewards) and avoids pebbles (negative rewards) to reach the goal.
 
-![Grid World](https://github.com/swamilalit/PathfinderRL/data/agent_env.png)
+![Grid World](data/agent_env.png)
 
 ## Environment Setup
 
@@ -24,7 +24,7 @@ The environment is visualized using Matplotlib:
 - **Goal State:** Highlighted in red.
 - **Agent Position:** Marked to show the current position on the grid.
 
-![Visualization](https://github.com/swamilalit/PathfinderRL/data/env_visualization.png)
+![Visualization](data/env_visualization.png)
 
 ## Algorithms Implemented
 
@@ -32,19 +32,15 @@ The environment is visualized using Matplotlib:
 
 - **Approach:** On-policy learning where the agent learns from actions based on the current policy.
 - **Update Formula:** 
-  \[
-  Q(s, a) = Q(s, a) + \alpha \left(r + \gamma \cdot Q(s', a') - Q(s, a)\right)
-  \]
-  Parameters: learning rate (\(\alpha\)), reward (\(r\)), discount factor (\(\gamma\)), and Q-values of the current and next state-action pairs.
+  Q(s, a) = Q(s, a) + α (r + γ * Q(s', a') - Q(s, a));
+   Parameters: learning rate (α), reward (r), discount factor (γ), and Q-values of the current and next state-action pairs.
 - **Features:** Balances exploration and exploitation through direct experiences.
 
 ### Q-Learning
 
 - **Approach:** Off-policy algorithm that finds the optimal policy indirectly using the greedy method.
 - **Update Formula:** 
-  \[
-  Q(s, a) = Q(s, a) + \alpha \left(r + \gamma \cdot \max(Q(s', a')) - Q(s, a)\right)
-  \]
+  Q(s, a) = Q(s, a) + α * (r + γ * max(Q(s', a')) - Q(s, a))
 - **Features:** Robust in large state spaces, though it may overestimate Q-values due to its maximization step.
 
 ## Getting Started
